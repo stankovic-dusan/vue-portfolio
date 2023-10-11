@@ -27,7 +27,7 @@
         <p>Text</p>
       </div>
     </div>
-    <!-- <div class="section">
+    <div class="section">
       <div class="projects-section" id="Work">
         <div class="section-title">
           <h1>Selected</h1>
@@ -217,7 +217,7 @@
           <p>Say hello!</p>
         </div>
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 
