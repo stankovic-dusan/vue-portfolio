@@ -27,15 +27,13 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .project {
-  margin: 0 100px;
-
   .project-details {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 30px;
+    padding: 0;
 
     h3 {
       font-size: 72px;
@@ -51,6 +49,7 @@ export default {
 .active {
   background-color: white;
   cursor: pointer;
+  height: auto;
 
   h3,
   p {
@@ -63,10 +62,49 @@ export default {
     align-items: center;
     padding-bottom: 40px;
 
-    // height: 40vh;
+    height: auto;
 
     img {
       width: 50%;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .project {
+    .project-details {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  .active {
+    background: none;
+    cursor: none;
+
+    h3,
+    p {
+      color: white;
+    }
+
+    .project-image {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 940px) {
+  .project {
+    .project-details {
+      margin-top: 10px;
+
+      h3 {
+        font-size: 40px;
+      }
+
+      p {
+        font-size: 18px;
+      }
     }
   }
 }

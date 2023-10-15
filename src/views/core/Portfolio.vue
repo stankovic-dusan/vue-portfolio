@@ -24,17 +24,20 @@
           <div class="ellipse-2"></div>
           <h2>Function</h2>
         </div>
-        <p>Text</p>
+        <p>I consider both aspects equality important when it comes to user interface.</p>
       </div>
     </div>
     <div class="section">
-      <div class="projects-section" id="Work">
+      <div class="projects-section">
         <div class="section-title">
-          <h1>Selected</h1>
-          <svg width="471" height="16" viewBox="0 0 471 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M471 16H0V0H471V16Z" fill="white" />
-          </svg>
-          <h1>Work</h1>
+          <div>
+            <h1>Selected</h1>
+            <div class="line"></div>
+          </div>
+          <div>
+            <div class="line"></div>
+            <h1>Works</h1>
+          </div>
         </div>
         <div class="projects">
           <RouterLink v-for="project in projects" :to="project.path"><ProjectCard :title="project.title" :stack="project.stack" :date="project.data" :image="project.img"></ProjectCard></RouterLink>
@@ -43,7 +46,7 @@
     </div>
     <div class="section">
       <div class="skills-section">
-        <div class="section-text">
+        <div class="section-title">
           <p>I strive to incorporate the best practices in my work.</p>
         </div>
         <div class="section-icons">
@@ -293,6 +296,7 @@ $secondary-font: "Hanson Bold", sans-serif;
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -331,7 +335,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 1800px;
+  max-width: 1600px;
 
   .section {
     width: 100%;
@@ -341,6 +345,11 @@ body {
     justify-content: center;
     align-items: center;
   }
+
+  .section:has(.hero-section) {
+    height: 100vh; // OVO JE NEKO BUDZENJE SKAPIRAJ GDE SI NAPRAVIO GREKU KONJU!!!
+  }
+
   .section-vw {
     background-color: white;
     height: auto;
@@ -377,6 +386,7 @@ body {
 }
 
 .aspects-section {
+  height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -392,8 +402,8 @@ body {
     .ellipse-1 {
       position: absolute;
 
-      width: 485px;
-      height: 485px;
+      width: 400px;
+      height: 400px;
 
       background: #0c9df4;
       filter: blur(200px);
@@ -402,8 +412,8 @@ body {
     .ellipse-2 {
       position: absolute;
 
-      width: 485px;
-      height: 485px;
+      width: 400px;
+      height: 400px;
 
       background: #ff184d;
       filter: blur(200px);
@@ -411,6 +421,8 @@ body {
     }
 
     h2 {
+      font-size: 64px;
+      font-weight: bold;
       opacity: 0;
       z-index: 1;
       position: absolute;
@@ -429,8 +441,21 @@ body {
 
   h1,
   p {
+    font-family: $primary-font;
+    font-weight: normal;
     opacity: 0;
     z-index: 1;
+  }
+
+  h1 {
+    font-size: 64px;
+  }
+
+  p {
+    text-align: center;
+    width: 50%;
+    font-size: 40px;
+    margin-top: 240px; // ovo je isto budzenje
   }
 
   .ellipse-active:has(.ellipse-1) {
@@ -463,18 +488,38 @@ body {
 
 .projects-section {
   width: 100%;
+  height: 100vh;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
 
   .section-title {
+    width: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    flex-direction: row;
 
-    h1 {
-      font-size: 86px;
-      padding: 40px;
+    div {
+      width: 50%;
+      display: flex;
+      align-items: center;
+
+      h1 {
+        font-size: 86px;
+      }
+
+      .line {
+        flex-shrink: 1;
+        height: 16px;
+        background-color: white;
+      }
+    }
+
+    div:nth-child(1) {
+      h1 {
+        margin-right: 60px;
+      }
     }
   }
 
@@ -484,17 +529,31 @@ body {
 }
 
 .skills-section {
-  p {
-    font-size: 64px;
+  width: 100%;
+
+  .section-title {
+    width: 50%;
+
+    p {
+      font-size: 64px;
+    }
   }
 
   .section-icons {
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 
     .skill-icon {
       display: flex;
       flex-direction: column;
       align-items: center;
+      flex-grow: 1;
+
+      svg {
+        width: 488px;
+        height: 488px;
+      }
 
       h2 {
         font-size: 40px;
@@ -528,7 +587,7 @@ body {
 .contact-section {
   .section-text {
     h2 {
-      text-transform: capitalize;
+      text-transform: none;
       font-size: 56px;
     }
     p {
@@ -538,9 +597,28 @@ body {
   }
 }
 
+@media (max-width: 1470px) {
+  .skills-section {
+    .section-icons {
+      margin-bottom: 200px;
+      .skill-icon {
+        svg {
+          width: 422px;
+          height: 422px;
+        }
+      }
+    }
+    .section-title {
+      width: auto;
+      text-align: center;
+    }
+  }
+}
+
 @media (max-width: 1200px) {
   .container {
     padding: 0 16px;
+    text-align: center;
   }
 
   .hero-section {
@@ -567,7 +645,6 @@ body {
 
     div {
       width: 100%;
-      align-items: flex-start;
 
       p {
         margin: 0;
@@ -581,11 +658,206 @@ body {
       justify-content: flex-start;
     }
   }
+
+  .aspects-section {
+    .ellipse-container {
+      .ellipse-1,
+      .ellipse-2 {
+        width: 400px;
+        height: 400px;
+        filter: blur(200px);
+      }
+      h2 {
+        font-size: 48px;
+        opacity: 100%;
+      }
+      .ellipse-1 {
+        bottom: -50px;
+        right: -50px;
+      }
+
+      .ellipse-2 {
+        top: -50px;
+        left: -50px;
+      }
+    }
+
+    .ellipse-container:has(.ellipse-1) {
+      right: auto;
+      bottom: auto;
+    }
+
+    .ellipse-container:has(.ellipse-2) {
+      left: auto;
+      top: auto;
+    }
+
+    h1,
+    p {
+      opacity: 100%;
+    }
+
+    h1 {
+      font-size: 64px;
+    }
+
+    p {
+      width: 100%;
+      margin: 100px 3px 0 3px;
+      font-size: 30px;
+    }
+  }
+
+  .projects-section {
+    .section-title {
+      flex-direction: column;
+
+      div {
+        width: 100%;
+
+        h1 {
+          margin: 0;
+        }
+      }
+
+      div:nth-child(1) {
+        h1 {
+          margin-right: 0px;
+        }
+      }
+
+      .line {
+        margin: 0 20px;
+      }
+    }
+    .projects {
+      // background-color: #0c9df4;
+    }
+  }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 940px) {
   body {
-    background-color: #ff184d;
+    .container {
+      .section {
+        height: auto;
+        justify-content: flex-start;
+      }
+    }
+
+    .hero-section {
+      justify-content: center;
+      margin-top: 60px;
+
+      h1 {
+        font-size: 48px;
+      }
+
+      p {
+        font-size: 32px;
+      }
+    }
+
+    .aspects-section {
+      // margin-bottom: 50px;
+
+      .ellipse-container {
+        .ellipse-1,
+        .ellipse-2 {
+          width: 220px;
+          height: 220px;
+          filter: blur(100px);
+        }
+      }
+
+      .ellipse-1 {
+        bottom: -50px;
+        right: -50px;
+      }
+
+      .ellipse-2 {
+        top: -50px;
+        left: -50px;
+      }
+    }
+
+    .projects-section {
+      .section-title {
+        h1 {
+          margin: 5px;
+          font-size: 48px;
+        }
+
+        .line {
+          height: 8px;
+          margin: 0 5px;
+        }
+      }
+    }
+
+    .skills-section {
+      .section-title {
+        padding: 0 16px;
+        p {
+          font-size: 32px;
+        }
+      }
+
+      .section-icons {
+        margin-bottom: 50px;
+        .skill-icon {
+          svg {
+            width: 244px;
+            height: 244px;
+          }
+
+          h2 {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+
+    .technologies-section {
+      .section-title {
+        padding: 0;
+        margin: 0;
+
+        h3 {
+          text-align: center;
+          font-size: 32px;
+          visibility: hidden;
+        }
+
+        h3:after {
+          margin-top: -40px;
+          display: block;
+          visibility: visible;
+          content: "Technologies I’ve used";
+        }
+      }
+
+      .section-icons {
+        svg {
+          width: 200px;
+        }
+      }
+    }
+
+    .contact-section {
+      .section-text {
+        text-align: center;
+
+        h2 {
+          padding-top: 48px;
+          font-size: 36px;
+        }
+        p {
+          margin-top: 60px;
+          font-size: 144px;
+        }
+      }
+    }
   }
 }
 </style>

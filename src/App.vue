@@ -1,9 +1,9 @@
 <template>
-  <div class="container">
-    <RouterView />
-  </div>
+  <RouterView />
 </template>
 
 <script>
-export default {};
+export default {
+  name: "App",
+};
 </script>
