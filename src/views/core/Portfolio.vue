@@ -597,7 +597,25 @@ body {
   }
 }
 
+@media (max-width: 1600px) {
+  body {
+    .container {
+      .section {
+        width: calc(100% - 32px);
+      }
+    }
+  }
+}
+
 @media (max-width: 1470px) {
+  body {
+    .container {
+      .section {
+        width: calc(100% - 10px);
+      }
+    }
+  }
+
   .skills-section {
     .section-icons {
       margin-bottom: 200px;
@@ -703,7 +721,7 @@ body {
 
     p {
       width: 100%;
-      margin: 100px 3px 0 3px;
+      margin-top: 100px;
       font-size: 30px;
     }
   }
@@ -740,6 +758,7 @@ body {
   body {
     .container {
       .section {
+        width: calc(100% - 5px);
         height: auto;
         justify-content: flex-start;
       }
@@ -839,7 +858,7 @@ body {
 
       .section-icons {
         svg {
-          width: 200px;
+          width: 170px;
         }
       }
     }
@@ -849,8 +868,9 @@ body {
         text-align: center;
 
         h2 {
-          padding-top: 48px;
-          font-size: 36px;
+          width: 100%;
+          padding: 0;
+          font-size: 38px;
         }
         p {
           margin-top: 60px;
