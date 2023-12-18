@@ -32,6 +32,7 @@ export default {
       padding: 48px 15px;
       display: flex;
       justify-content: space-between;
+      position: relative;
     }
 
     h1,
