@@ -1,12 +1,13 @@
 <template>
-  <div class="project" @mouseover="detailsVisbile = true" @mouseleave="detailsVisbile = false" :class="{ active: detailsVisbile }">
-    <div class="project-details">
-      <h3>{{ title }}</h3>
-      <p>{{ stack }}</p>
-      <p>{{ date }}</p>
-    </div>
-    <div class="project-image" v-show="detailsVisbile">
-      <img :src="image" alt="" />
+  <div class="container">
+    <div class="project" @mouseover="projectVisbile = true" @mouseleave="projectVisbile = false" :class="{ active: projectVisbile }">
+      <div class="project-details">
+        <h1>{{ title }}</h1>
+        <div class="project-image">
+          <img :src="image" alt="" /> 
+        </div>
+        <p>{{ stack }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -15,95 +16,48 @@
 export default {
   data() {
     return {
-      detailsVisbile: false,
+      projectVisbile: false,
     };
   },
-  props: ["title", "stack", "date", "image", "path"],
-  methods: {
-    toogleProject() {
-      this.detailsVisbile = !this.detailsVisbile;
-    },
-  },
+  props: ["title", "image", "stack"],
 };
 </script>
 
 <style lang="scss" scoped>
-.project {
-  .project-details {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0;
-
-    h3 {
-      font-size: 72px;
-      margin: 30px 0;
-    }
-
-    p {
-      font-family: Arial, Helvetica, sans-serif;
-    }
-  }
-}
-
-.active {
-  background-color: white;
-  cursor: pointer;
-  height: auto;
-
-  h3,
-  p {
-    color: black;
-  }
-
-  .project-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 40px;
-
-    height: auto;
-
-    img {
-      width: 50%;
-    }
-  }
-}
-
-@media (max-width: 1200px) {
+.container {
   .project {
+    cursor: pointer;
+    width: 100%;
+
     .project-details {
-      flex-direction: column;
-      align-items: flex-start;
+      margin: 0;
+      padding: 48px 15px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    h1,
+    p {
+      margin: 0px;
     }
   }
 
   .active {
-    background: none;
-    cursor: none;
+    background-color: white;
 
-    h3,
-    p {
-      color: white;
-    }
-
-    .project-image {
-      display: none;
-    }
-  }
-}
-
-@media (max-width: 940px) {
-  .project {
     .project-details {
-      margin-top: 10px;
-
-      h3 {
-        font-size: 40px;
-      }
-
+      h1,
       p {
-        font-size: 18px;
+        color: black;
+      }
+      .project-image {
+        position: fixed;
+        top: 40%;
+        left: 40%;
+        width: 720px;
+        height: 470px;
+        background-color: #e6e9eb;
+        border-radius: 24px;
       }
     }
   }

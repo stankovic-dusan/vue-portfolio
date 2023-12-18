@@ -39,8 +39,11 @@
             <h1>Works</h1>
           </div>
         </div>
-        <div class="projects">
-          <RouterLink v-for="project in projects" :to="project.path"><ProjectCard :title="project.title" :stack="project.stack" :date="project.data" :image="project.img"></ProjectCard></RouterLink>
+        <div class="projects" id="Work">
+          <!-- <RouterLink v-for="project in projects" :to="project.path"><ProjectCard :title="project.title" :stack="project.stack" :date="project.data" :image="project.img"></ProjectCard></RouterLink> -->
+          <ProjectCard title="Weather App" image="" stack="VUE JS"></ProjectCard>
+          <ProjectCard title="Weather App" stack="VUE JS"></ProjectCard>
+          <ProjectCard title="Weather App" stack="VUE JS"></ProjectCard>
         </div>
       </div>
     </div>
@@ -769,7 +772,7 @@ body {
       margin-top: 60px;
 
       h1 {
-        font-size: 48px;
+        font-size: 42px;
       }
 
       p {
