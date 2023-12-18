@@ -41,8 +41,8 @@
         </div>
         <div class="projects" id="Work">
           <!-- <RouterLink v-for="project in projects" :to="project.path"><ProjectCard :title="project.title" :stack="project.stack" :date="project.data" :image="project.img"></ProjectCard></RouterLink> -->
-          <ProjectCard title="Weather App" image="" stack="VUE JS"></ProjectCard>
-          <ProjectCard title="Weather App" stack="VUE JS"></ProjectCard>
+          <ProjectCard title="Weather App" :image="projects[0].img" stack="VUE JS"></ProjectCard>
+          <ProjectCard title="Weather App" :image="projects[1].img" stack="VUE JS"></ProjectCard>
           <ProjectCard title="Weather App" stack="VUE JS"></ProjectCard>
         </div>
       </div>

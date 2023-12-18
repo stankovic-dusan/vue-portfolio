@@ -3,9 +3,7 @@
     <div class="project" @mouseover="projectVisbile = true" @mouseleave="projectVisbile = false" :class="{ active: projectVisbile }">
       <div class="project-details">
         <h1>{{ title }}</h1>
-        <div class="project-image">
-          <img :src="image" alt="" /> 
-        </div>
+        <div class="project-image" :style="{ 'background-image': 'url(' + image + ')' }"></div>
         <p>{{ stack }}</p>
       </div>
     </div>
@@ -58,6 +56,10 @@ export default {
         height: 470px;
         background-color: #e6e9eb;
         border-radius: 24px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        object-fit: cover;
       }
     }
   }
